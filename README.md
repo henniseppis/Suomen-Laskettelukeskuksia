@@ -8,3 +8,6 @@
   - Käyttäjä voi arvostella laskettelukeskuksen ja jättää siitä halutessaan kommenttia
   - Ylläpitäjä voi muokata keskuksista näkyviä tietoja esimerkiksi kuinka monta hissiä tai rinnettä on sinä päivänä auki tai keskuksen säätilannetta
   - Ylläpitäjä voi poistaa keskuksia listalta sekä hallinoida arvosteluja
+
+
+Sovelluksen toiminnot ovat siis hyvin samanlaisia kuin sovellusideoissa esitellyn Ravintolasovelluksen.
