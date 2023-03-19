@@ -24,4 +24,4 @@
 
 
 
-Sovelluksen toiminnot ovat siis hyvin samanlaisia kuin sovellusideoissa esitellyn ravintolasovelluksen.
+Sovelluksen toiminnot ovat siis samankaltaisia kuin sovellusideoissa esitellyn ravintolasovelluksen.
