@@ -1,0 +1,27 @@
+
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>Luo käyttäjätunnus</h2>
+
+<form action="/register" method="post">
+Tunnus: <br><input type="text" name="username" minlength="1" maxlength="20">
+<p>
+Salasana: <br><input type="password" name="password1">
+<p>
+Salasana uudestaan: <br><input type="password" name="password2">
+<p>
+Käyttäjärooli:
+<select name="role">
+<option value=1> käyttäjä
+<option value=2> ylläpitäjä
+</select>
+<p>
+<input type="submit" value="Luo tunnus">
+</form>
+
+<p> Muistitko juuri, että oletkin rekisteröitynyt jo aiemmin? Paina siinä tapauksessa <a href="/login">tästä</a></p>
+
+<p>
+
+{% endblock %}
