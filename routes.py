@@ -17,8 +17,9 @@ def skicenters():
 
 @app.route("/info")
 def info():
+    list = center_info.get_list()
     info = center_info.get_info()
-    return render_template("info.html", info=info)
+    return render_template("info.html", info=info, list = list)
 
 @app.route("/login_plain")
 def login_plain():
@@ -55,21 +56,27 @@ def register():
         password1 = request.form["password1"]
         password2 = request.form["password2"]
         if password1 != password2:
-            flash('Out of stock! We have only 5 products in stock.', 'error')
+            messagebox.showinfo("Virhe", "Salasanat eivät täsmää kokeilethan uudestaan")
+            return redirect("/register")
         if len(password1) < 8:
        	    messagebox.showinfo("Virhe", "Salasanan tulee olla vähintään 8 merkkiä")
+            return redirect("/register")
         if password1 == "":
-            return render_template("error.html", message="Salasana ei voi olla tyhjä..")
+            messagebox.showinfo("Virhe", "Keksithän jonkun salasanan. Se ei voi olla tyhjä")
+            return redirect("/register")
         if not set(list(string.digits)).intersection(password1):
-            return render_template("error.html", message="Salasanan tulee sisältää vähintään yksi numero") 
+            messagebox.showinfo("Virhe", "Salasanan tulee sisältää vähintään yksi numero")
+            return redirect("/register")
+
 
         role = request.form["role"]
         if role not in ("1", "2"):
-            return render_template("error.html", message="Tuntematon käyttäjärooli")
+            messagebox.showinfo("Virhe", "Tuntematon käyttäjärooli")
+            return redirect("/register")
 
         if users.register(username, password1, role):
             return redirect("/skicenters")
-        #else: 
-        #    return render_template("error.html", message = "Rekisteröinti ei onnistunut")
+        else: 
+            return render_template("error.html", message = "Rekisteröinti ei onnistunut")
 #
 
