@@ -1,5 +1,13 @@
 # Suomen laskettelukeskuksia 
 
+### Sovelluksen toiminta 2.4.2023, ensimmäinen välipalautus
+  - Käyttäjä voi luoda tunnuksen ja  kirjautua sisään
+  - Näkee listan keskuksista, joita sovelluksesta löytyy tällä hetkellä
+  - Jokaisen keskuksen nimestä voi painaa jolloin se vie sen keskuksen info sivulle (infot todella vaiheessa vielä)
+  - Muutenkin sivun tekstit ja ulkoasu muutenkin ehkä jollain tavalla tulevat vielä muuttumaan
+  
+---
+
 ### Sovelluksen idea
 
 ###### Käyttäjän oikeudet
