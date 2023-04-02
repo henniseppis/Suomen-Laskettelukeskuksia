@@ -12,13 +12,22 @@
 
 ### Käynnistys
 
-Kloonaa repositio koneelle
-ja mene kansioon Tietokantasovellus2023 (cd Tietokantasovellus2023)
-
-
-python3 -m venv venv
-$ source venv/bin/activate
-$ pip install -r ./requirements.txt
+- Kloonaa repositio koneelle
+    
+- Mene kansioon Tietokantasovellus2023
+   - cd Tietokantasovellus2023
+- Luodaan .env tiedosto johon lisätään:
+   - DATABASE_URL= tietokannan paikallinen osoite
+   - SECRET_KEY= randomilla luotu salainen-avain
+- Asennetaan virtuaaliympäristö ja riippuvuudet komennoilla sekä määritetään tietokannan skeema:
+  - python3 -m venv venv
+  - source venv/bin/activate
+  -  pip install -r ./requirements.txt
+  - psql < schema.sql
+- Sovellus käynnistyy terminaalissa komennolla:
+  - flask run
+  
+---
 
 ### Sovelluksen idea
 
