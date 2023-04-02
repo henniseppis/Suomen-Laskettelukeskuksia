@@ -2,11 +2,23 @@
 
 ### Sovelluksen toiminta 2.4.2023, ensimmäinen välipalautus
   - Käyttäjä voi luoda tunnuksen ja  kirjautua sisään
-  - Näkee listan keskuksista, joita sovelluksesta löytyy tällä hetkellä
-  - Jokaisen keskuksen nimestä voi painaa jolloin se vie sen keskuksen info sivulle (infot todella vaiheessa vielä)
+  - Näkee listan keskuksista, joita sovelluksesta löytyy tällä hetkellä  
   - Muutenkin sivun tekstit ja ulkoasu muutenkin ehkä jollain tavalla tulevat vielä muuttumaan
   
+   Tätä en saanutkaan toimimaan lopulta vielä tähän palautukseen vaikka oli tarkoitus..:
+  - Jokaisen keskuksen nimestä voi painaa jolloin se vie sen keskuksen info sivulle (info.html).
+  
 ---
+
+### Käynnistys
+
+Kloonaa repositio koneelle
+ja mene kansioon Tietokantasovellus2023 (cd Tietokantasovellus2023)
+
+
+python3 -m venv venv
+$ source venv/bin/activate
+$ pip install -r ./requirements.txt
 
 ### Sovelluksen idea
 
