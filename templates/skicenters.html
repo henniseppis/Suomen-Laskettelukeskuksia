@@ -1,0 +1,12 @@
+<h1> Laskettelukeskuksia Suomessa </h1>
+
+<p> Jos täältä puuttuu lempikeskuksesi käy ilmoittamassa siitä <i> täältä (tähän tulee linkki) </i> niin hoidamme sen listaan piakkoin :) </p>
+
+{% for center in list %}
+<font size = "+2"> <strong> <a href = "/info" > {{ center.name}} </strong> {{center.location}} </a>  </font> <br> 
+
+
+{% endfor %}
+
+
+<p> LISTA keskuksista linkkeinä ja niistä voi painaa -> info </p>

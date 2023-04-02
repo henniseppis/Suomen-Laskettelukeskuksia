@@ -1,0 +1,14 @@
+<title> voitko toimia </title>
+
+{% for i in info %}
+
+<font size = "+5"> <strong> {{i.name}} </strong> </font> <br>
+
+<img src= "https://www.levi.fi/images/levi_logo_rgb_syva-cc-88tty.png" alt = "Levi-logo" height = "240" width = "340" />
+
+
+Hissejä = {{i.lifts}} <br>
+
+Rinteitä = {{i.slopes}} <br>
+
+{% endfor %}

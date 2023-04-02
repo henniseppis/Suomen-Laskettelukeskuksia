@@ -1,5 +1,5 @@
 {% if session.username %}
-<p>Olet kirjautunut sisään käyttäjänimellä {{ session.username }}<p> jatka tästä selailemaan keskuksia: //LINKKI// </p>
+<p>Olet kirjautunut sisään käyttäjänimellä {{ session.username }}<p> jatka tästä selailemaan keskuksia: <a href="/skicenters">Täällä </a> </p>
 <a href="/logout">Kirjaudu ulos</a>
 {% else %}
 <form action="/login" method="POST">
@@ -10,4 +10,3 @@
 <input type="submit" value="Kirjaudu">
 </form>
 {% endif %}
-

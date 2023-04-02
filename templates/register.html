@@ -1,11 +1,16 @@
-
-{% extends "layout.html" %}
-{% block content %}
-
 <h2>Luo käyttäjätunnus</h2>
 
+<p> Huom </p>
+<ul>
+  <li>Käyttäjänimen tulee olla vähintään 5 ja enintään 20 merkkiä</li>
+  <li>Käyttäjänimi saa sisältää myös erikoismerkkejä ja numeroita</li>
+  <li>Salasanan tulee olla vähintään 8 merkkiä pitkä </li>
+  <li>Salasanan tulee sisältää vähintään yksi <strong> numero </strong> </li>
+</ul>
+
+
 <form action="/register" method="post">
-Tunnus: <br><input type="text" name="username" minlength="1" maxlength="20">
+Tunnus: <br><input type="text" name="username" minlength="5" maxlength="20">
 <p>
 Salasana: <br><input type="password" name="password1">
 <p>
@@ -24,4 +29,3 @@ Käyttäjärooli:
 
 <p>
 
-{% endblock %}
