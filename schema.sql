@@ -18,6 +18,7 @@ CREATE TABLE info (
     skicenter_id INTEGER REFERENCES skicenters,
     slopes INTEGER,
     lifts INTEGER,
+    park BOOLEAN,
     stars INTEGER
     
 );

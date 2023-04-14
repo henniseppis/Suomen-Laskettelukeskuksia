@@ -15,11 +15,11 @@ def skicenters():
     list = center_info.get_list()
     return render_template("skicenters.html", list = list)
 
-@app.route("/info")
-def info():
+@app.route("/info/<int:id>")
+def info(id):
     list = center_info.get_list()
     info = center_info.get_info()
-    return render_template("info.html", info=info, list = list)
+    return render_template("info.html", id=list[0], info=info)
 
 @app.route("/login_plain")
 def login_plain():

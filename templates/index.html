@@ -1,10 +1,29 @@
-<title> Tervetuloa </title>
+<!DOCTYPE html>
+
+{% extends "layout.html" %}
+{% block content %}
+
+
+<center> 
+
 
 <h1>Olet löytänyt Suomen parhaimpien hiihtokeskusten äärelle</h1>
 
-<b> Voit aloittaa luomalla tunnuksen <b> <i>  <a href="/register">täällä</a> </i> </b>
-<b> jos taas olet jo luonut semmoisen niin kirjaudu ihmeessä sisään <b> <i> <a href="/login_plain">täällä</a> </i> </b>
+<p style="text-decoration: underline;"> <font size = "+2"><strong>  Sivustollamme voit: </strong> </p> </font>
+<ul>
+   <li>Selata ja lukea infoa eri laskettelukeskuksista</li><br>
+   <li>Ehdottaa puuttuvan laskettelukeskuksen lisäämistä sivullemme</li><br>
+   <li>Kirjoittaa ja lukea arvosteluja laskettelukeskuksista </li><br>
+   <li>Päättää tulevan laskureissusi kohteen !! </li><br>
+</ul>	
+
+<b style = "position:relative; top: 70px" > Jos olet ensimmäistä kertaa täällä voit aloittaa <b> <i>  <a href="/register">luomalla tunnuksen</a> </i> </b> <br>
+<b> Jos taas olet jo vakikäyttäjä niin  <b> <i> <a href="/login_plain">kirjaudu sisään</a> </i> </b>
+
+</center>
 
 
-<p> Kirjautuneena pääset selaamaan lasketelukeskuksia sekä etsimään sieltä omaan tarpeisiisi sopivia paikkoja! <p> Pääset myös lukemaan arvosteluja keskuksista ja kirjoittamaan niitä myös itse! </p>
+{% endblock %}
+
+
 

@@ -1,19 +1,16 @@
 
-<link rel="skicenters" href="skicenters.html">
 
 <title> Laskettelukeskuksia Suomessa </title>
 
 
-{% for i in info %}
-{% if skicenters.center.na == i.name %}
-<font size = "+5"> <strong> {{i.name}} </strong> </font> <br>
 
-<strong>Hissejä</strong> = {{i.lifts}} <br>
+<font size = "+5"> <strong> {{ name }} </strong> </font> <br>
 
-<strong>Rinteitä</strong> = {{i.slopes}} <br>
-{% else %}
-moi
-{% endif %}
+<strong>Hissejä</strong> = {{location}} <br>
 
-{% endfor %}
+<strong>Rinteitä</strong> = {{slopes}} <br>
+
+
+
+
 
