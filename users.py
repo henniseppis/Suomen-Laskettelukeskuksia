@@ -15,9 +15,12 @@ def login(username, password):
     else:
         hash_value = user.password
         if check_password_hash(hash_value, password):
+            session["user_id"] = user[0]
+            session["username"] = username
+            session["role"] = user[2]
+            session["secret_password"] = os.urandom(16).hex()
             return True
-        else: 
-            return False
+        return False
 
 
 def register(username, password, role):

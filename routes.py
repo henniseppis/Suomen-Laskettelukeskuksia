@@ -9,6 +9,11 @@ from tkinter import messagebox
 @app.route("/")
 def index():
     return render_template("index.html")
+    
+@app.route("/proposition")
+def new():
+    return render_template("center_proposition.html")
+
 
 @app.route("/skicenters")
 def skicenters():
@@ -21,11 +26,7 @@ def info(id):
     info = center_info.get_info()
     return render_template("info.html", id=list[0], info=info)
 
-@app.route("/login_plain")
-def login_plain():
-    return render_template("login.html")
-
-@app.route("/login",methods=["POST"])
+@app.route("/login",methods=["GET","POST"])
 def login():
     if request.method == "GET":
         return render_template("login.html")
@@ -41,7 +42,7 @@ def login():
 @app.route("/logout")
 def logout():
     del session["username"]
-    return redirect("/login_plain")
+    return redirect("/login")
 
 @app.route("/register", methods=["get", "post"])
 def register():

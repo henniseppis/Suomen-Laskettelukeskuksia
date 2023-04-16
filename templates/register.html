@@ -1,13 +1,21 @@
+<!DOCTYPE html>
+
+{% extends "layout.html" %}
+{% block content %}
+
 <h2>Luo käyttäjätunnus</h2>
 
-<p> Huom </p>
-<ul>
-  <li>Käyttäjänimen tulee olla vähintään 5 ja enintään 20 merkkiä</li>
-  <li>Käyttäjänimi saa sisältää myös erikoismerkkejä ja numeroita</li>
-  <li>Salasanan tulee olla vähintään 8 merkkiä pitkä </li>
-  <li>Salasanan tulee sisältää vähintään yksi <strong> numero </strong> </li>
-</ul>
+<p> Muistitko juuri, että oletkin rekisteröitynyt jo aiemmin? Paina siinä tapauksessa <a href="/login">tästä</a></p>
 
+<p> Huom! </p>
+<div class="centered_list">
+    <ul>
+    	<li>Käyttäjänimen tulee olla vähintään 5 ja enintään 20 merkkiä</li>
+  	<li>Käyttäjänimi saa sisältää myös erikoismerkkejä ja numeroita</li>
+  	<li>Salasanan tulee olla vähintään 8 merkkiä pitkä </li>
+  	<li>Salasanan tulee sisältää vähintään yksi <strong> numero </strong> </li>
+    </ul>
+</div>
 
 <form action="/register" method="post">
 Tunnus: <br><input type="text" name="username" minlength="5" maxlength="20">
@@ -25,7 +33,7 @@ Käyttäjärooli:
 <input type="submit" value="Luo tunnus">
 </form>
 
-<p> Muistitko juuri, että oletkin rekisteröitynyt jo aiemmin? Paina siinä tapauksessa <a href="/login">tästä</a></p>
 
 <p>
 
+{% endblock %}

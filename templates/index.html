@@ -3,24 +3,20 @@
 {% extends "layout.html" %}
 {% block content %}
 
-
-<center> 
-
-
 <h1>Olet löytänyt Suomen parhaimpien hiihtokeskusten äärelle</h1>
 
-<p style="text-decoration: underline;"> <font size = "+2"><strong>  Sivustollamme voit: </strong> </p> </font>
-<ul>
-   <li>Selata ja lukea infoa eri laskettelukeskuksista</li><br>
-   <li>Ehdottaa puuttuvan laskettelukeskuksen lisäämistä sivullemme</li><br>
-   <li>Kirjoittaa ja lukea arvosteluja laskettelukeskuksista </li><br>
-   <li>Päättää tulevan laskureissusi kohteen !! </li><br>
-</ul>	
-
+<p style="text-decoration: underline;"> <font size = "+2"> <strong>  Sivustollamme voit: </strong> </p> </font>
+<div class="centered_list">
+    <ul>
+    	<li>Selata ja lukea infoa eri laskettelukeskuksista</li><br>
+    	<li>Ehdottaa puuttuvan laskettelukeskuksen lisäämistä sivullemme</li><br>
+    	<li>Kirjoittaa ja lukea arvosteluja laskettelukeskuksista </li><br>
+    	<li>Päättää tulevan laskureissusi kohteen !! </li><br>
+	</ul>	
+</div>
 <b style = "position:relative; top: 70px" > Jos olet ensimmäistä kertaa täällä voit aloittaa <b> <i>  <a href="/register">luomalla tunnuksen</a> </i> </b> <br>
-<b> Jos taas olet jo vakikäyttäjä niin  <b> <i> <a href="/login_plain">kirjaudu sisään</a> </i> </b>
+<b> Jos taas olet jo vakikäyttäjä niin  <b> <i> <a href="/login">kirjaudu sisään</a> </i> </b>
 
-</center>
 
 
 {% endblock %}

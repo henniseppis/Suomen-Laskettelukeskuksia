@@ -18,9 +18,23 @@ CREATE TABLE info (
     skicenter_id INTEGER REFERENCES skicenters,
     slopes INTEGER,
     lifts INTEGER,
-    park BOOLEAN,
-    stars INTEGER
+    park BOOLEAN
     
 );
 
+CREATE TABLE reviews (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users,
+    written_review TEXT,
+    stars INTEGER
+
+);
+
+CREATE TABLE propositions (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    user_id INTEGER REFERENCES users
+ 
+ );
+    
 

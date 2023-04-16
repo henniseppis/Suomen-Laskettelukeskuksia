@@ -1,4 +1,5 @@
 body {
+    text-align: center;
     margin: auto;
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: large;
@@ -6,11 +7,12 @@ body {
     color: white;
     opacity: 0.8;
     line-height: 2;
+    
 }
 
 
 
-ul {
+.centered_list {
     text-align: center;
     list-style-position: inside;
     margin: 0 auto;
