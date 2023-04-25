@@ -27,7 +27,7 @@ CREATE TABLE reviews (
     user_id INTEGER REFERENCES users,
     written_review TEXT,
     stars INTEGER
-
+center
 );
 
 CREATE TABLE propositions (

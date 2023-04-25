@@ -2,16 +2,24 @@ from flask import redirect, render_template, request, session, flash
 from app import app
 import users
 import center_info
+import propositions
 import string
 
 @app.route("/")
 def index():
     return render_template("index.html")
-    
-@app.route("/proposition")
+
+@app.route("/new")
 def new():
     return render_template("center_proposition.html")
-
+    
+@app.route("/proposition", methods=["POST"])
+def proposition():
+    center = request.form["center"]
+    if propositions.save_new(center):
+    	return render_template("successful_proposition.html")
+    else:
+    	return render_template("error.html", message="Toivomus ei tallentunut kokeilethan uudestaan")
 
 @app.route("/skicenters")
 def skicenters():
