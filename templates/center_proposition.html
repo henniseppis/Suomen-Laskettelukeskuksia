@@ -3,12 +3,23 @@
 {% extends "layout.html" %}
 {% block content %}
 
+{% if session.username %}
+
 <h3> Puuttuuko sivuiltamme lempikeskuksesi? <br> Ei hätää ehdota sitä tekstiboksiin niin lisäämme sen nettisivuillemme mahdollisimman pian! </h3>
+
+<p> ps. Kirjoitathan boksiin vain keskuksen nimen ja sijainnin! </p>
+
 <form action="/proposition" method="POST">
 Keskus jonka haluaisit sovellukseemme: <br>
 <textarea name="center" rows="2" cols="40"></textarea>
 <br>
 <input type="submit" value="Lähetä">
 </form>
+
+{% else %}
+
+<p> Et ole kirjautunut sisään teethän sen <a href="/login">täällä</a></p>
+
+{% endif %}
 
 {% endblock %}

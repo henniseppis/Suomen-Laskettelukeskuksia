@@ -8,10 +8,14 @@
 
 <b> Jos täältä puuttuu lempikeskuksesi käy ilmoittamassa siitä <i> täältä (tähän tulee linkki) </i> niin hoidamme sen listaan piakkoin :) </b> <br>
 
+<center><div class="scroll_box">
+
 {% for center in list %}
-<font size = "+2"> <strong> <a href = "/info/{{ center.id }}"> {{center.id}} {{ center.name}} </strong> {{center.location}} </a>  </font> <br> 
+<font size = "+3"> <strong> <a href = "/info/{{ center.id }}"> {{center.id}} {{ center.name}} </strong> {{center.location}} </a>  </font> <br> 
 
 {% endfor %}
+
+</div></center>
 
 {% else %}
 

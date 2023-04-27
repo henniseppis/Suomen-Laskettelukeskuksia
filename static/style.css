@@ -11,7 +11,6 @@ body {
 }
 
 
-
 .centered_list {
     text-align: center;
     list-style-position: inside;
@@ -21,4 +20,11 @@ body {
 
 }
 
-
+.scroll_box {
+    height:500px;
+    width:500px;
+    text-align: center;
+    border:1px solid #ccc;
+    overflow-y: scroll;
+    
+}

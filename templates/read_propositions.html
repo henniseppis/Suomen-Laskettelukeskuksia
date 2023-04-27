@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+{% extends "layout.html" %}
+{% block content %}
+
+{% if session.role == 2 %}
+
+<center><div class="scroll_box">
+
+{% for center in list %}
+	
+  	<font size="+2"> <strong> {{ center.name }} </strong></font>
+    	<form action="/remove/{{ center.id }}" method="POST"> 
+    	<button name="remove">Poista</button><br>
+    
+{% endfor %}
+
+</div> </center>
+
+{% else %}
+
+<p> Näet tämän sivun vain ylläpitäjänä </p>
+
+{% endif %}
+
+{% endblock %}
+

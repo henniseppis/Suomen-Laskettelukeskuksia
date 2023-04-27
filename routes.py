@@ -16,20 +16,39 @@ def new():
 @app.route("/proposition", methods=["POST"])
 def proposition():
     center = request.form["center"]
+    if len(center) > 50:
+        return render_template("error.html", error="Teksti on liian pitkä. Kirjoitathan vain keskuksen nimen ja sijainnin")
     if propositions.save_new(center):
     	return render_template("successful_proposition.html")
     else:
     	return render_template("error.html", message="Toivomus ei tallentunut kokeilethan uudestaan")
 
+@app.route("/read")
+def read():
+    if users.require_role(2):
+    	list = propositions.read()
+    	return render_template("read_propositions.html", list=list)
+    else:
+    	return render_template("error.html", message="Sivun voi nähdä vain ylläpitäjät. Olethan varmasti ylläpitäjä? ")
+
+@app.route("/remove/<int:center_id>", methods=["POST"])
+def remove(center_id):
+    id = request.form["remove"]
+    if users.require_role(2):
+    	propositions.delete(center_id) 
+    	return redirect("/read")
+    else:
+    	return render_template("error.html", message="Sivun voi nähdä vain ylläpitäjät. Olethan varmasti ylläpitäjä? ")
+
+
 @app.route("/skicenters")
 def skicenters():
     list = center_info.get_list()
-    return render_template("skicenters.html", list = list)
+    return render_template("skicenters.html", list=list)
 
 @app.route("/info/<int:skicenter_id>")
 def info(skicenter_id):
     info = center_info.get_info(skicenter_id)
-    print(info)
     return render_template("info.html", skicenter_id=info[0][0], name=info[0][1], slopes=info[0][2], lifts=info[0][3], info=info)
 
 @app.route("/login",methods=["GET","POST"])

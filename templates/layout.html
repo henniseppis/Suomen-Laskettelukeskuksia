@@ -4,18 +4,28 @@
 <title>Laskettelukeskuksia suomessa</title>
 <center>
 <body>
-<a href="/"> Etusivu ,</a>
-<a href="/login"> Kirjaudu ,</a>
-<a href="/register"> Rekisteröidy ,</a>
-<a href="/skicenters"> Selaa laskettelukeskuksia ,</a>
-<a href="/new"> Ehdota keskusta ,</a>
 {% if session.username %} 
 Kirjautuneena: {{ session.username }} 
 <a href="/logout">Kirjaudu ulos</a>
+
 {% endif %}
+
+<a href="/"> Etusivu | </a>
+<a href="/login"> Kirjaudu | </a>
+<a href="/register"> Rekisteröidy | </a>
+<a href="/skicenters"> Selaa laskettelukeskuksia | </a>
+<a href="/new"> Ehdota keskusta | </a>
+
+{% if session.role == 2 %}
+
+<a href="/read"> Lue ehdotuksia | </a>, LINKKI lue palautteita, LINKKI lisää keskus </p>
+
+{% endif %}
+
 </body>
 </center>
 <hr>
 {% block content %}{% endblock %}
+
 
 
