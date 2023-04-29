@@ -8,7 +8,7 @@ CREATE TABLE users (
 
 CREATE TABLE skicenters (
     id SERIAL PRIMARY KEY,
-    name TEXT,
+    name TEXTslo,
     location TEXT
 
 );
@@ -18,8 +18,8 @@ CREATE TABLE info (
     skicenter_id INTEGER REFERENCES skicenters,
     slopes INTEGER,
     lifts INTEGER,
-    park BOOLEAN
-    
+    park BOOLEAN,
+    description TEXT
 );
 
 CREATE TABLE reviews (

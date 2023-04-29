@@ -6,9 +6,9 @@
 
 {% if session.username %}
 <p>Olet kirjautunut sisään käyttäjänimellä: <p style="text-decoration: underline;"> {{ session.username }}</p> 
-<p> Jatka <a href="/skicenters"> tästä </a> selailemaan keskuksia:  </p>
 <a href="/logout">Kirjaudu ulos</a>
 {% else %}
+
 <form action="/login" method="POST">
 <p>Tunnus:<br>
 <input type="text" name="username"></p>
@@ -16,6 +16,7 @@
 <input type="password" name="password"></p>
 <input type="submit" value="Kirjaudu">
 </form>
+
 {% endif %}
 
 {% endblock %}

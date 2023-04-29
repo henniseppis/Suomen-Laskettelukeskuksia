@@ -4,10 +4,10 @@
 <title>Laskettelukeskuksia suomessa</title>
 <center>
 <body>
-{% if session.username %} 
-Kirjautuneena: {{ session.username }} 
-<a href="/logout">Kirjaudu ulos</a>
 
+{% if session.username %} 
+<i> Kirjautuneena: {{ session.username }} 
+<a href="/logout">Kirjaudu ulos |</a> </i>
 {% endif %}
 
 <a href="/"> Etusivu | </a>
@@ -16,9 +16,11 @@ Kirjautuneena: {{ session.username }}
 <a href="/skicenters"> Selaa laskettelukeskuksia | </a>
 <a href="/new"> Ehdota keskusta | </a>
 
-{% if session.role == 2 %}
+{% if session.role == 2 and session.username %}
 
-<a href="/read"> Lue ehdotuksia | </a>, LINKKI lue palautteita, LINKKI lisää keskus </p>
+<a href="/read"> Lue ehdotuksia | </a>
+<a href="/add_center_form">  Lisää keskus| </a> LINKKI lue palautteita
+<a href="/testi"> testi | </a>
 
 {% endif %}
 

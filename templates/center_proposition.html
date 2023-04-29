@@ -14,11 +14,12 @@ Keskus jonka haluaisit sovellukseemme: <br>
 <textarea name="center" rows="2" cols="40"></textarea>
 <br>
 <input type="submit" value="Lähetä">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>
 
 {% else %}
 
-<p> Et ole kirjautunut sisään teethän sen <a href="/login">täällä</a></p>
+<p> Et ole kirjautunut sisään teethän sen ensin <a href="/login">täällä</a></p>
 
 {% endif %}
 

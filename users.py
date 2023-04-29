@@ -32,6 +32,11 @@ def register(username, password, role):
     	return False
     return login(username, password)
     
+def logout():
+    del session["username"]
+    del session["user_id"]
+    del session["role"]
+    
 def user_id():
     return session.get("user_id", 0)
     
@@ -39,4 +44,8 @@ def require_role(role):
     if role > session.get("role", 0):
         return False
     return True
+
+def check_csrf():
+    if session["csrf_token"] != request.form["csrf_token"]:
+        abort(403)
 

@@ -4,11 +4,21 @@
 <title> Laskettelukeskuksia Suomessa </title>
 
 
-
 <font size = "+5"> <strong> {{ name }} </strong> </font> <br>
 
-<strong>Hissejä</strong> = {{ lifts }}  <strong>Rinteitä</strong> = {{ slopes }} <br>
+<div class="description">
+{{ description }}
+</div>
 
+<div class="centered_list">
+<font size = "+3">
+<ul>
+<li> Hissejä= {{ lifts }}</li>
+<li> Rinteitä = {{ slopes }} </li>
+<li> Freestyle-Park = {{ park }} </li>
+</ul>
+</font>
+</div>
 
 {% endblock %}
 

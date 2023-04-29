@@ -7,19 +7,27 @@
 
 <center><div class="scroll_box">
 
+<form action="/remove" method="post">
+
 {% for center in list %}
+
+<input type="radio" name="proposition" value="{{ center.id }}"> <font size = "+3"> {{ center.name }} </font> <br>
 	
-  	<font size="+2"> <strong> {{ center.name }} </strong></font>
-    	<form action="/remove/{{ center.id }}" method="POST"> 
-    	<button name="remove">Poista</button><br>
-    
 {% endfor %}
 
-</div> </center>
+<input type="submit" value="Poista">
+
+</form>
+
+</div>
+
+<p> Pääset lisäämään keskuksen sivuillemme <a href="/add_center_form">täällä</a></p>
+
+</center>
 
 {% else %}
 
-<p> Näet tämän sivun vain ylläpitäjänä </p>
+<p> Sivun voi nähdä vain ylläpitäjät. Olethan varmasti ylläpitäjä? </p>
 
 {% endif %}
 

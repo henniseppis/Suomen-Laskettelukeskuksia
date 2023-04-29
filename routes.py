@@ -1,4 +1,4 @@
-from flask import redirect, render_template, request, session, flash
+from flask import redirect, render_template, request, session
 from app import app
 import users
 import center_info
@@ -31,16 +31,38 @@ def read():
     else:
     	return render_template("error.html", message="Sivun voi nähdä vain ylläpitäjät. Olethan varmasti ylläpitäjä? ")
 
-@app.route("/remove/<int:center_id>", methods=["POST"])
-def remove(center_id):
-    id = request.form["remove"]
-    if users.require_role(2):
-    	propositions.delete(center_id) 
-    	return redirect("/read")
-    else:
-    	return render_template("error.html", message="Sivun voi nähdä vain ylläpitäjät. Olethan varmasti ylläpitäjä? ")
+@app.route("/remove", methods=["POST"])
+def remove():
+	if users.require_role(2):
+		center_id = request.form["proposition"]
+		propositions.delete(center_id)
+		return redirect("/read")
+		
+	return render_template("error.html", message="Sivun voi nähdä vain ylläpitäjät. Olethan varmasti ylläpitäjä? ")
+	
+@app.route("/add_center_form")
+def add_center_form():
+    return render_template("add_center.html")
+    	
+@app.route("/add", methods=["POST"])
+def add():
+	if users.require_role(2):
+		name = request.form["center_name"]
+		location = request.form["location"]
+		lifts = request.form["lifts"]
+		slopes = request.form["slopes"]
+		description = request.form["description"]
+		park = request.form["park"]
 
-
+		if propositions.add_skicenter(name,location):
+			skicenter_id = propositions.get_skicenter_id(name)
+			propositions.add_info(skicenter_id,slopes,lifts,park,description)
+			return render_template("successful_add.html")
+		else:
+			return render_template("error.html", message="Lisääminen ei onnistunut yritäthän uudestaan.")
+	return render_template("error.html", message="Sivun voi nähdä vain ylläpitäjät. Olethan varmasti ylläpitäjä? ")
+	
+	
 @app.route("/skicenters")
 def skicenters():
     list = center_info.get_list()
@@ -48,9 +70,9 @@ def skicenters():
 
 @app.route("/info/<int:skicenter_id>")
 def info(skicenter_id):
-    info = center_info.get_info(skicenter_id)
-    return render_template("info.html", skicenter_id=info[0][0], name=info[0][1], slopes=info[0][2], lifts=info[0][3], info=info)
-
+	info = center_info.get_info(skicenter_id)
+	return render_template("info.html", skicenter_id=info[0][0], name=info[0][1], slopes=info[0][2], lifts=info[0][3], park=info[0][4], description=info[0][5], info=info)
+    
 @app.route("/login",methods=["GET","POST"])
 def login():
     if request.method == "GET":
@@ -66,15 +88,16 @@ def login():
     
 @app.route("/logout")
 def logout():
-    del session["username"]
+    users.logout()
     return redirect("/login")
 
-@app.route("/register", methods=["get", "post"])
+@app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "GET":
         return render_template("register.html")
 
     if request.method == "POST":
+    
         username = request.form["username"]
         if len(username) < 5 or len(username) > 20:
             return render_template("error.html", message="Käyttäjätunnuksen tulee olla vähintään 5 ja enintään 20 merkkiä. Palaathan takaisin ja kokeilet jotain muuta käyttäjänimeä :)")
@@ -99,5 +122,4 @@ def register():
             return redirect("/skicenters")
         else: 
             return render_template("error.html", message = "Rekisteröinti ei onnistunut. Käyttäjänimi mahdollisesti jo käytössä. Kokeilethan jotain toista.")
-#
 

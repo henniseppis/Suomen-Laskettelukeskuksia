@@ -28,3 +28,9 @@ body {
     overflow-y: scroll;
     
 }
+
+.description {
+	margin: 0 auto;
+  	max-width: 50em;
+    font-style: strong;
+    font-size: large;

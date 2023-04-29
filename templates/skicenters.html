@@ -11,7 +11,7 @@
 <center><div class="scroll_box">
 
 {% for center in list %}
-<font size = "+3"> <strong> <a href = "/info/{{ center.id }}"> {{center.id}} {{ center.name}} </strong> {{center.location}} </a>  </font> <br> 
+<font size = "+3"> <strong> <a href = "/info/{{ center.id }}">  {{ center.name}} </strong> {{center.location}} </a>  </font> <br> 
 
 {% endfor %}
 
@@ -19,7 +19,7 @@
 
 {% else %}
 
-<p> Et ole kirjautunut sisään teethän sen <a href="/login">täällä</a></p>
+<p> Et ole kirjautunut sisään teethän sen ensin <a href="/login">täällä</a></p>
 
 {% endif %}
 

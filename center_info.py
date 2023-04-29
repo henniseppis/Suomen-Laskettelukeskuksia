@@ -9,6 +9,6 @@ def get_list():
     return result.fetchall()
 
 def get_info(skicenter_id):
-    sql = text("SELECT s.id, s.name, i.slopes, i.lifts FROM skicenters s, info i WHERE s.id=:skicenter_id and i.id=s.id" )
+    sql = text("SELECT s.id, s.name, i.slopes, i.lifts, i.park, i.description FROM skicenters s, info i WHERE s.id=:skicenter_id and i.skicenter_id=s.id" )
     result = db.session.execute(sql, {"skicenter_id": skicenter_id})
     return result.fetchall()

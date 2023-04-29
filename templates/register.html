@@ -5,6 +5,12 @@
 
 <h2>Luo käyttäjätunnus</h2>
 
+{% if session.username %}
+<p>Olet kirjautunut sisään käyttäjänimellä: <p style="text-decoration: underline;"> {{ session.username }}</p>
+<a href="/logout">Kirjaudu ulos</a>
+
+{% else %}
+
 <p> Muistitko juuri, että oletkin rekisteröitynyt jo aiemmin? Paina siinä tapauksessa <a href="/login">tästä</a></p>
 
 <p> Huom! </p>
@@ -35,5 +41,7 @@ Käyttäjärooli:
 
 
 <p>
+
+{% endif %}
 
 {% endblock %}
