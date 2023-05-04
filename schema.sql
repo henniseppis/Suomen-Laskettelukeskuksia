@@ -8,7 +8,7 @@ CREATE TABLE users (
 
 CREATE TABLE skicenters (
     id SERIAL PRIMARY KEY,
-    name TEXTslo,
+    name TEXT,
     location TEXT
 
 );
@@ -25,7 +25,7 @@ CREATE TABLE info (
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users,
-    written_review TEXT,
+    skicenter_id INTEGER REFERENCES skicenters,
     stars INTEGER
     
 );

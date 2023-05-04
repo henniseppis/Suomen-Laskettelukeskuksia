@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+{% extends "layout.html" %}
+{% block content %}
+
+{% if session.username %}
+
+<h1> Arvostele keskus </h1> 
+
+<form action="/review" method="POST">
+<label for="centers">Keskus, jonka haluaisit arvostella:</label>
+<select name="centers">
+{% for center in list %}
+  <option value="{{center.id}}">{{center.name}}</option>
+{% endfor %}
+</select>
+<br>
+<label for="rate">Arvostele keskus yhdestä viiteen (1=huonoin, 5=paras):</label>
+<select name="rate">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+</select>
+<br>
+<input type="submit" value="Lähetä">
+</form>
+
+{% else %}
+
+<p> Et ole kirjautunut sisään teethän sen ensin <a href="/login">täällä</a></p>
+
+{% endif %}
+
+{% endblock %}

@@ -14,10 +14,15 @@
     	<li>Päättää tulevan laskureissusi kohteen !! </li><br>
     </ul>	
 </div>
+
+{% if session.role == 2 %}
+
+Ylläpitäjänä voit lisäksi:
+
 <b style = "position:relative; top: 70px" > Jos olet ensimmäistä kertaa täällä voit aloittaa <b> <i>  <a href="/register">luomalla tunnuksen</a> </i> </b> <br>
 <b> Jos taas olet jo vakikäyttäjä niin  <b> <i> <a href="/login">kirjaudu sisään</a> </i> </b>
 
-
+{% endif %}
 
 {% endblock %}
 

@@ -3,8 +3,16 @@
 {% extends "layout.html" %}
 {% block content %}
 
+{% if session.role == 2 %}
+
 <h2> Keskus lisätty onnistuneesti! <h2>
 
 <p> Käythän vielä lisäyksen jälkeen poistamassa ehdotuksista lisäämäsi keskuksen <a href="/read">täällä</a></p>
+
+{% else %}
+
+<p> Sivun voi nähdä vain ylläpitäjät. Olethan varmasti ylläpitäjä? </p>
+
+{% endif %}
 
 {% endblock %}

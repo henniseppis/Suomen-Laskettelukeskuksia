@@ -4,9 +4,7 @@
 {% block content %}
 
 {% if session.username %}
-<h1> Laskettelukeskuksia Suomessa </h1>
-
-<b> Jos täältä puuttuu lempikeskuksesi käy ilmoittamassa siitä <i> täältä (tähän tulee linkki) </i> niin hoidamme sen listaan piakkoin :) </b> <br>
+<h2> Laskettelukeskuksia Suomessa </h2>
 
 <center><div class="scroll_box">
 
@@ -16,6 +14,9 @@
 {% endfor %}
 
 </div></center>
+
+<b> <strong> Oletko jo käynyt jossain ylläolevista keskuksista? Arvostele 			laskettelukeskus <a href="/review_form"> täällä </a> <br> 
+tai jos listalta puuttuu lempikeskuksesi niin käy ilmoittamassa siitä <a href="/	proposition_form"> täällä </a> niin hoidamme sen listaan piakkoin :)  </strong> </b> <br>
 
 {% else %}
 

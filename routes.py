@@ -9,8 +9,8 @@ import string
 def index():
     return render_template("index.html")
 
-@app.route("/new")
-def new():
+@app.route("/proposition_form")
+def proposition_form():
     return render_template("center_proposition.html")
     
 @app.route("/proposition", methods=["POST"])
@@ -71,7 +71,22 @@ def skicenters():
 @app.route("/info/<int:skicenter_id>")
 def info(skicenter_id):
 	info = center_info.get_info(skicenter_id)
-	return render_template("info.html", skicenter_id=info[0][0], name=info[0][1], slopes=info[0][2], lifts=info[0][3], park=info[0][4], description=info[0][5], info=info)
+	reviews = center_info.get_reviews(skicenter_id)
+	average_rate = center_info.count_average(reviews, skicenter_id)
+	return render_template("info.html", skicenter_id=info[0][0], name=info[0][1], slopes=info[0][2], lifts=info[0][3], park=info[0][4], description=info[0][5], rate=average_rate, info=info, reviews=reviews, average_rate=average_rate)
+
+@app.route("/review_form")
+def review_form():
+    list = center_info.get_list()
+    return render_template("add_review.html", list=list)
+
+@app.route("/review", methods=["POST"])
+def review():
+	center = request.form["centers"]
+	rate = request.form["rate"]
+	if center_info.add_review(center, rate):
+		return render_template("successful_review.html")  
+	return render_template("error.html", message="Lisääminen ei onnistunut yritäthän uudestaan.")
     
 @app.route("/login",methods=["GET","POST"])
 def login():
