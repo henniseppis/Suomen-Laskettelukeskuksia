@@ -8,7 +8,7 @@ CREATE TABLE users (
 
 CREATE TABLE skicenters (
     id SERIAL PRIMARY KEY,
-    name TEXT,
+    name TEXT UNIQUE,
     location TEXT
 
 );

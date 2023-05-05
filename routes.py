@@ -15,6 +15,7 @@ def proposition_form():
     
 @app.route("/proposition", methods=["POST"])
 def proposition():
+	users.check_csrf()
     center = request.form["center"]
     if len(center) > 50:
         return render_template("error.html", error="Teksti on liian pitkä. Kirjoitathan vain keskuksen nimen ja sijainnin")
@@ -53,13 +54,13 @@ def add():
 		slopes = request.form["slopes"]
 		description = request.form["description"]
 		park = request.form["park"]
-
+		
 		if propositions.add_skicenter(name,location):
 			skicenter_id = propositions.get_skicenter_id(name)
 			propositions.add_info(skicenter_id,slopes,lifts,park,description)
 			return render_template("successful_add.html")
 		else:
-			return render_template("error.html", message="Lisääminen ei onnistunut yritäthän uudestaan.")
+			return render_template("error.html", message="Lisääminen ei onnistunut yritäthän uudestaan. Voi olla että keskus löytyy jo sivuiltamme")
 	return render_template("error.html", message="Sivun voi nähdä vain ylläpitäjät. Olethan varmasti ylläpitäjä? ")
 	
 	
@@ -73,7 +74,7 @@ def info(skicenter_id):
 	info = center_info.get_info(skicenter_id)
 	reviews = center_info.get_reviews(skicenter_id)
 	average_rate = center_info.count_average(reviews, skicenter_id)
-	return render_template("info.html", skicenter_id=info[0][0], name=info[0][1], slopes=info[0][2], lifts=info[0][3], park=info[0][4], description=info[0][5], rate=average_rate, info=info, reviews=reviews, average_rate=average_rate)
+	return render_template("info.html", skicenter_id=info[0][0], name=info[0][1], slopes=info[0][2], lifts=info[0][3], park=info[0][4], description=info[0][5], rate=average_rate, info=info, reviews=reviews)
 
 @app.route("/review_form")
 def review_form():

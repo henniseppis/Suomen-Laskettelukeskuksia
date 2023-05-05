@@ -24,19 +24,19 @@ def delete(center_id):
 	
 def add_skicenter(name,location):
 	try:
-		sql_info = text("INSERT INTO skicenters (name, location) VALUES (:name, :location)")
+		sql_info = text("""INSERT INTO skicenters (name, location) VALUES (:name, :location)""")
 		db.session.execute(sql_info, {"name":name, "location":location})
 		db.session.commit()	
-		return True
 	except:
 		return False
+	return True
     	
 def add_info(skicenter_id,slopes,lifts,park,description):
 	try:
 		sql_skicenters = text("INSERT INTO info (skicenter_id, slopes, lifts, park,description) VALUES (:skicenter_id, :slopes, :lifts, :park, :description)")
 		db.session.execute(sql_skicenters, {"skicenter_id":skicenter_id, "slopes":slopes, "lifts":lifts, "park":park,"description":description})
 		db.session.commit()
-
+		return True
 	except:
 		return False
 
