@@ -1,13 +1,26 @@
-# Suomen laskettelukeskuksia 
+### Sovelluksen idea
+# Suomen Laskettelukeskuksia
 
-### Sovelluksen toiminta 2.4.2023, ensimmäinen välipalautus
-  - Käyttäjä voi luoda tunnuksen ja  kirjautua sisään
-  - Näkee listan keskuksista, joita sovelluksesta löytyy tällä hetkellä  
-  - Muutenkin sivun tekstit ja ulkoasu muutenkin ehkä jollain tavalla tulevat vielä muuttumaan
+### Idea
+
+- Käyttäjä voi selata sovelluksessa olevia laskettelukeskuksia ja niistä löytyy infoa 
+- Käyttäjä voi ehdottaa sinne lisättäväksi keskuksen sekä arvostella keskuksia
+- Ylläpitäjä voi lisäksi selata käyttäjien ehdottamia keskuksia ja lisätä niistä infot sovellukseen. Lisäämisen jälkeen ylläpitäjä voi poistaa ehdotuksista lisäämänsä keskuksen nimen
+
+###### Käyttäjän oikeudet
+  - Käyttäjä voi rekisteröityä
+  - Käyttäjä voi kirjautua sisään ja ulos
+  - Käyttäjä pystyy selaamaan sovelluksessa olevia laskettelukeskuksia 
+  - Käyttäjä voi tarkastella tiettyä keskusta ja siitä avautuvaa infoa
+  - Käyttäjä voi arvostella laskettelukeskuksen
   
-   Tätä en saanutkaan toimimaan lopulta vielä tähän palautukseen vaikka oli tarkoitus..:
-  - Jokaisen keskuksen nimestä voi painaa jolloin se vie sen keskuksen info sivulle (info.html).
-  
+###### Ylläpitäjän oikeudet (Normaalin käyttäjän oikeuksien lisäksi)
+  - Ylläpitäjä voi lukea mitä keskuksia on ehdotettu lisättäväski sovellukseen
+  - Ylläpitäjä voi lisätä keskuksen ja sen kaikki tiedot sovellukseen lomakkeen kautta
+  - Ylläpitäjä voi poistaa ehdotuksista lisäämänsä sovelluksen
+
+Suosittelen testaamaan sovellusta niin käyttäjän kuin ylläpitäjänkin näkökulmasta, käyttökokemus on erilainen!
+
 ---
 
 ### Käynnistys
@@ -22,35 +35,11 @@
 - Asennetaan virtuaaliympäristö ja riippuvuudet komennoilla sekä määritetään tietokannan skeema:
   - python3 -m venv venv
   - source venv/bin/activate
-  -  pip install -r ./requirements.txt
+  - pip install -r ./requirements.txt
   - psql < schema.sql
 - Sovellus käynnistyy terminaalissa komennolla:
   - flask run
   
 ---
 
-### Sovelluksen idea
-
-###### Käyttäjän oikeudet
-  - Käyttäjä voi kirjautua sisään ja ulos
-  - Käyttäjä pystyy selaamaan sovelluksessa olevia laskettelukeskuksia 
-  - Käyttäjä voi tarkastella tiettyä keskusta ja siitä avautuvaa infoa esim. sijainti, rinteiden/hissien lukumäärä, muiden antama arvio asteikolla 1-5, rinneravintoloiden määrä, lumitilanne/säätilanne sillä hetkellä tms. tietoa. (En välttämättä laita kaikkia näitä, ehkä.)
-  - Käyttäjä voi etsiä omiin tarpeisiinsa sopivia keskuksia (esim. yli 20 rinnettä, mustien (vaikeiden) rinteiden määrä, Freestyle park, vuokraamo)
-  - Käyttäjä voi arvostella laskettelukeskuksen ja jättää siitä halutessaan kommenttia
-  
-###### Ylläpitäjän oikeudet
-  - Ylläpitäjä voi muokata keskuksista näkyviä tietoja esimerkiksi kuinka monta hissiä tai rinnettä on sinä päivänä auki tai keskuksen säätilannetta
-  - Ylläpitäjä voi poistaa keskuksia listalta sekä hallinoida arvosteluja
  
-### Alustavat ideat tauluiksi
-  - Users
-  - Ski centers
-  - Info (keskuksien infot)
-  - Reviews
-  - (Joku yksi ainakin vielä)
-
-
-
-
-
-Sovelluksen toiminnot ovat siis samankaltaisia kuin sovellusideoissa esitellyn ravintolasovelluksen.
