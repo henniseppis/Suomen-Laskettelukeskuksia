@@ -8,20 +8,20 @@ import string
 @app.route("/")
 def index():
     return render_template("index.html")
-
-@app.route("/proposition_form")
-def proposition_form():
-    return render_template("center_proposition.html")
     
-@app.route("/proposition", methods=["POST"])
+@app.route("/proposition", methods=["GET","POST"])
 def proposition():
-	center = request.form["center"]
-	if len(center) > 50:
-		return render_template("error.html", error="Teksti on liian pitkä. Kirjoitathan vain keskuksen nimen ja sijainnin")
-	if propositions.save_new(center):
-		return render_template("successful_proposition.html")
-	else:
-		return render_template("error.html", message="Toivomus ei tallentunut kokeilethan uudestaan")
+	if request.method == "GET":
+		return render_template("center_proposition.html")
+	
+	if request.method == "POST":
+		center = request.form["center"]
+		if len(center) > 50:
+			return render_template("error.html", error="Teksti on liian pitkä. Kirjoitathan vain keskuksen nimen ja sijainnin")
+		if propositions.save_new(center):
+			return render_template("successful_proposition.html")
+		else:
+			return render_template("error.html", message="Toivomus ei tallentunut kokeilethan uudestaan")
 
 @app.route("/read")
 def read():
@@ -39,28 +39,29 @@ def remove():
 		return redirect("/read")
 		
 	return render_template("error.html", message="Sivun voi nähdä vain ylläpitäjät. Olethan varmasti ylläpitäjä? ")
-	
-@app.route("/add_center_form")
-def add_center_form():
-    return render_template("add_center.html")
     	
-@app.route("/add", methods=["POST"])
+@app.route("/add", methods=["GET","POST"])
 def add():
-	if users.require_role(2):
-		name = request.form["center_name"]
-		location = request.form["location"]
-		lifts = request.form["lifts"]
-		slopes = request.form["slopes"]
-		description = request.form["description"]
-		park = request.form["park"]
+	if request.method == "GET":
+		return render_template("add_center.html")
+	
+	if request.method == "POST":	
+
+		if users.require_role(2):
+			name = request.form["center_name"]
+			location = request.form["location"]
+			lifts = request.form["lifts"]
+			slopes = request.form["slopes"]
+			description = request.form["description"]
+			park = request.form["park"]
 		
-		if propositions.add_skicenter(name,location):
-			skicenter_id = propositions.get_skicenter_id(name)
-			propositions.add_info(skicenter_id,slopes,lifts,park,description)
-			return render_template("successful_add.html")
-		else:
-			return render_template("error.html", message="Lisääminen ei onnistunut yritäthän uudestaan. Voi olla että keskus löytyy jo sivuiltamme")
-	return render_template("error.html", message="Sivun voi nähdä vain ylläpitäjät. Olethan varmasti ylläpitäjä? ")
+			if propositions.add_skicenter(name,location):
+				skicenter_id = propositions.get_skicenter_id(name)
+				propositions.add_info(skicenter_id,slopes,lifts,park,description)
+				return render_template("successful_add.html")
+			else:
+				return render_template("error.html", message="Lisääminen ei onnistunut yritäthän uudestaan. Voi olla että keskus löytyy jo sivuiltamme")
+		return render_template("error.html", message="Sivun voi nähdä vain ylläpitäjät. Olethan varmasti ylläpitäjä? ")
 	
 	
 @app.route("/skicenters")
@@ -75,18 +76,18 @@ def info(skicenter_id):
 	average_rate = center_info.count_average(reviews, skicenter_id)
 	return render_template("info.html", skicenter_id=info[0][0], name=info[0][1], slopes=info[0][2], lifts=info[0][3], park=info[0][4], description=info[0][5], rate=average_rate, info=info, reviews=reviews)
 
-@app.route("/review_form")
-def review_form():
-    list = center_info.get_list()
-    return render_template("add_review.html", list=list)
-
-@app.route("/review", methods=["POST"])
+@app.route("/review", methods=["GET","POST"])
 def review():
-	center = request.form["centers"]
-	rate = request.form["rate"]
-	if center_info.add_review(center, rate):
-		return render_template("successful_review.html")  
-	return render_template("error.html", message="Lisääminen ei onnistunut yritäthän uudestaan.")
+	if request.method == "GET":
+		list = center_info.get_list()
+		return render_template("add_review.html", list=list)
+	
+	if request.method == "POST":
+		center = request.form["centers"]
+		rate = request.form["rate"]
+		if center_info.add_review(center, rate):
+			return render_template("successful_review.html")  
+		return render_template("error.html", message="Lisääminen ei onnistunut yritäthän uudestaan.")
     
 @app.route("/login",methods=["GET","POST"])
 def login():
