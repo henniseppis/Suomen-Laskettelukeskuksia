@@ -36,4 +36,4 @@ def count_average(reviews, skicenter_id):
 		return "Keskusta ei ole vielä arvosteltu"
 	else:
 		average = total/amount
-		return average
+		return format(average, '.2f')

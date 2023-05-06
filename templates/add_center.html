@@ -8,14 +8,14 @@
 <form action="/add" method="post">
 Keskuksen nimi: <br><input type="text" name="center_name" maxlength="50" required="required">
 <p>
-Sijainti (esim. muodossa Kittilä,Lappi) : <br><input type="text" name="location" required="required">
+Sijainti (esim. muodossa Kittilä,Lappi) : <br><input type="text" name="location" maxlength="50" required="required">
 <p>
-Hissien määrä: <br><input type="number" name="lifts" required="required">
+Hissien määrä: <br><input type="number" name="lifts" maxlength="4" required="required">
 <p>
-Rinteiden määrä: <br><input type="number" name="slopes" required="required">
+Rinteiden määrä: <br><input type="number" name="slopes" maxlength="4" required="required">
 <p>
 Kuvaus keskuksesta: <br>
-<textarea name="description" rows="6" cols="70" required="required"></textarea> <br>
+<textarea name="description" maxlength="1000" rows="6" cols="70" required="required"></textarea> <br>
 Freestyle-park: <br>
 <select name="park">
 <option value=f> Ei

@@ -10,11 +10,12 @@ def index():
     return render_template("index.html")
     
 @app.route("/proposition", methods=["GET","POST"])
-def proposition():
+def proposition():	
 	if request.method == "GET":
 		return render_template("center_proposition.html")
 	
 	if request.method == "POST":
+		users.check_csrf()
 		center = request.form["center"]
 		if len(center) > 50:
 			return render_template("error.html", error="Teksti on liian pitkä. Kirjoitathan vain keskuksen nimen ja sijainnin")
@@ -46,7 +47,6 @@ def add():
 		return render_template("add_center.html")
 	
 	if request.method == "POST":	
-
 		if users.require_role(2):
 			name = request.form["center_name"]
 			location = request.form["location"]
@@ -121,21 +121,21 @@ def register():
         password1 = request.form["password1"]
         password2 = request.form["password2"]
         if password1 != password2:
-            return render_template("error.html", message = "Salasanat eroavat toisistaan!")
+            return render_template("error.html", message="Salasanat eroavat toisistaan!")
         if len(password1) < 8:
-       	    return render_template("error.html", message = "Salasana on liian lyhyt. Sen tulee olla vähintään 8 merkkiä!")
+       	    return render_template("error.html", message="Salasana on liian lyhyt. Sen tulee olla vähintään 8 merkkiä!")
         if password1 == "":
-           return render_template("error.html", message = "Salasana ei voi olla tyhjä..")
+           return render_template("error.html", message="Salasana ei voi olla tyhjä..")
         if not set(list(string.digits)).intersection(password1):
-            return render_template("error.html", message = "Salasanan tulee sisältää vähintään yksi numero!")
+            return render_template("error.html", message="Salasanan tulee sisältää vähintään yksi numero!")
 
 
         role = request.form["role"]
         if role not in ("1", "2"):
-            return render_template("error.html", message = "Tuntematon käyttjärooli")
+            return render_template("error.html", message="Tuntematon käyttjärooli")
 
         if users.register(username, password1, role):
             return redirect("/skicenters")
         else: 
-            return render_template("error.html", message = "Rekisteröinti ei onnistunut. Käyttäjänimi mahdollisesti jo käytössä. Kokeilethan jotain toista.")
+            return render_template("error.html", message="Rekisteröinti ei onnistunut. Käyttäjänimi mahdollisesti jo käytössä. Kokeilethan jotain toista.")
 
