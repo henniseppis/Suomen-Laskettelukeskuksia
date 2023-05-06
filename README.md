@@ -1,7 +1,6 @@
-### Sovelluksen idea
 # Suomen Laskettelukeskuksia
 
-### Idea
+### Sovelluksen idea
 
 - Käyttäjä voi selata sovelluksessa olevia laskettelukeskuksia ja niistä löytyy infoa 
 - Käyttäjä voi ehdottaa sinne lisättäväksi keskuksen sekä arvostella keskuksia
