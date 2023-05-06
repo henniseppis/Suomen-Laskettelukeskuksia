@@ -15,14 +15,13 @@ def proposition_form():
     
 @app.route("/proposition", methods=["POST"])
 def proposition():
-	users.check_csrf()
-    center = request.form["center"]
-    if len(center) > 50:
-        return render_template("error.html", error="Teksti on liian pitkä. Kirjoitathan vain keskuksen nimen ja sijainnin")
-    if propositions.save_new(center):
-    	return render_template("successful_proposition.html")
-    else:
-    	return render_template("error.html", message="Toivomus ei tallentunut kokeilethan uudestaan")
+	center = request.form["center"]
+	if len(center) > 50:
+		return render_template("error.html", error="Teksti on liian pitkä. Kirjoitathan vain keskuksen nimen ja sijainnin")
+	if propositions.save_new(center):
+		return render_template("successful_proposition.html")
+	else:
+		return render_template("error.html", message="Toivomus ei tallentunut kokeilethan uudestaan")
 
 @app.route("/read")
 def read():

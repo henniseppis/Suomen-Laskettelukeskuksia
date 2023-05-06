@@ -16,7 +16,7 @@ def login(username, password):
             session["user_id"] = user[0]
             session["username"] = username
             session["role"] = user[2]
-            session["secret_password"] = os.urandom(16).hex()
+            session["csrf_token"] = os.urandom(16).hex()
             return True
         return False
 
@@ -45,7 +45,4 @@ def require_role(role):
         return False
     return True
 
-def check_csrf():
-    if session["csrf_token"] != request.form["csrf_token"]:
-        abort(403)
 
