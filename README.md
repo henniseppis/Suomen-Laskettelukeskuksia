@@ -13,12 +13,12 @@
   - Käyttäjä voi tarkastella tiettyä keskusta ja siitä avautuvaa infoa
   - Käyttäjä voi arvostella laskettelukeskuksen
   
-###### Ylläpitäjän oikeudet (Normaalin käyttäjän oikeuksien lisäksi)
+###### Ylläpitäjän oikeudet (normaalin käyttäjän oikeuksien lisäksi)
   - Ylläpitäjä voi lukea mitä keskuksia on ehdotettu lisättäväski sovellukseen
   - Ylläpitäjä voi lisätä keskuksen ja sen kaikki tiedot sovellukseen lomakkeen kautta
   - Ylläpitäjä voi poistaa ehdotuksista lisäämänsä sovelluksen
-
-Suosittelen testaamaan sovellusta niin käyttäjän kuin ylläpitäjänkin näkökulmasta, käyttökokemus on luonnollisesti erilainen!
+  
+###### Suosittelen testaamaan sovellusta niin käyttäjän kuin ylläpitäjänkin näkökulmasta, käyttökokemus on luonnollisesti erilainen!
 ---
 
 ### Käynnistys
