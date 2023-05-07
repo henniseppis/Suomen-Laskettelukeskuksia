@@ -18,8 +18,7 @@
   - Ylläpitäjä voi lisätä keskuksen ja sen kaikki tiedot sovellukseen lomakkeen kautta
   - Ylläpitäjä voi poistaa ehdotuksista lisäämänsä sovelluksen
 
-Suosittelen testaamaan sovellusta niin käyttäjän kuin ylläpitäjänkin näkökulmasta, käyttökokemus on erilainen!
-
+Suosittelen testaamaan sovellusta niin käyttäjän kuin ylläpitäjänkin näkökulmasta, käyttökokemus on luonnollisesti erilainen!
 ---
 
 ### Käynnistys
